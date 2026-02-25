@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Samkran | Yusuf Samson Kalume - Environmental Health Professional</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Samkran (Yusuf Samson Kalume) - Environmental Health Professional, Public Health Officer Intern, and Digital Innovator based in Kilifi County, Kenya.">
+    <meta name="keywords" content="Environmental Health, Public Health, Kilifi, Kenya, Samkran, Yusuf, Samson Kalume, Vaccination, Sanitation, PWA">
+    <meta name="author" content="Samkran Yusuf Kalume">
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#00e5ff">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Samkran">
+    
+    <!-- Favicon & Icons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/icon-32x32.png?v=2">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/icon-16x16.png?v=2">
+    <link rel="apple-touch-icon" href="/assets/icons/icon-152x152.png?v=2">
+    <link rel="manifest" href="/manifest.json?v=2">
+    
+    <!-- CSS with cache-busting query parameter -->
+    <link rel="stylesheet" href="/css/style.css?v=20250225-01">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        /* Quick fix for any remaining issues */
+        html {
+            scroll-padding-top: 100px;
+            scroll-behavior: smooth;
+        }
+        
+        .section {
+            scroll-margin-top: 100px;
+        }
+        
+        /* Fix for mobile menu */
+        body.menu-open {
+            overflow: hidden;
+        }
+        
+        /* Force hardware acceleration for smooth animations */
+        .header, .section, .btn, .project-card {
+            transform: translateZ(0);
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+</head>
+<body>
+    <!-- App Container -->
+    <div id="app">
+        <!-- Header / Navigation -->
+        <header class="header">
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo-container">
+                        <h2 class="faith-name">Yusuf</h2>
+                        <h1 class="brand-name">SAMKRAN</h1>
+                        <p class="legal-name">Samson Kalume</p>
+                    </div>
+                    
+                    <!-- Mobile Menu Toggle -->
+                    <button class="mobile-menu-toggle" id="menuToggle" aria-label="Menu">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    
+                    <!-- Desktop Navigation -->
+                    <nav class="desktop-nav">
+                        <ul>
+                            <li><a href="#home" class="nav-link" data-section="home">Home</a></li>
+                            <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+                            <li><a href="#experience" class="nav-link" data-section="experience">Experience</a></li>
+                            <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
+                            <li><a href="#impact" class="nav-link" data-section="impact">Impact</a></li>
+                            <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            
+            <!-- Mobile Navigation Menu -->
+            <div class="mobile-nav" id="mobileNav">
+                <ul>
+                    <li><a href="#home" class="mobile-nav-link" data-section="home">Home</a></li>
+                    <li><a href="#about" class="mobile-nav-link" data-section="about">About</a></li>
+                    <li><a href="#experience" class="mobile-nav-link" data-section="experience">Experience</a></li>
+                    <li><a href="#projects" class="mobile-nav-link" data-section="projects">Projects</a></li>
+                    <li><a href="#impact" class="mobile-nav-link" data-section="impact">Impact</a></li>
+                    <li><a href="#contact" class="mobile-nav-link" data-section="contact">Contact</a></li>
+                </ul>
+            </div>
+        </header>
+
+        <!-- Main Content Sections -->
+        <main id="main-content">
+            <!-- HOME SECTION -->
+            <section id="home" class="section active">
+                <div class="container">
+                    <div class="hero">
+                        <div class="hero-content">
+                            <p class="faith-name-hero">يوسف</p>
+                            <h1 class="brand-name-hero">SAMKRAN</h1>
+                            <h2 class="legal-name-hero">Samson Kalume</h2>
+                            <div class="hero-titles">
+                                <span class="hero-title-item">Environmental Health Professional</span>
+                                <span class="hero-title-separator">•</span>
+                                <span class="hero-title-item">Public Health Practitioner</span>
+                                <span class="hero-title-separator">•</span>
+                                <span class="hero-title-item">Digital Innovator</span>
+                            </div>
+                            <p class="hero-summary">
+                                Environmental Health student at Kenyatta University with hands-on experience in sanitation inspection, vaccination campaigns, disease prevention, and environmental conservation. Currently serving as a Public Health Officer Intern at Mtondia Dispensary in Kilifi County. Passionate about community health, sustainability, and digital innovation.
+                            </p>
+                            <div class="hero-buttons">
+                                <a href="#" class="btn btn-primary" id="downloadCvBtn">
+                                    <i class="fas fa-download"></i> Download CV
+                                </a>
+                                <a href="#projects" class="btn btn-secondary">
+                                    <i class="fas fa-eye"></i> View Projects
+                                </a>
+                                <a href="#contact" class="btn btn-outline">
+                                    <i class="fas fa-envelope"></i> Contact Me
+                                </a>
+                            </div>
+                        </div>
+                        <div class="hero-image">
+                            <div class="profile-frame">
+                                <img src="/assets/images/profile.png" alt="Samkran Yusuf Kalume" class="profile-img" onerror="this.src='https://via.placeholder.com/280x280?text=Samkran'">
+                                <div class="frame-decoration"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ABOUT SECTION -->
+            <section id="about" class="section">
+                <div class="container">
+                    <h2 class="section-title">About <span class="highlight">Me</span></h2>
+                    
+                    <div class="about-content">
+                        <div class="about-text">
+                            <h3>Professional Identity</h3>
+                            <p>
+                                I am <strong>Yusuf</strong>, professionally known as <strong>Samkran</strong>, an Environmental Health professional committed to community health improvement, environmental sustainability, and digital innovation. My work combines field expertise in public health with technical skills in web development and digital systems.
+                            </p>
+                            
+                            <h3>Professional Summary</h3>
+                            <ul class="about-list">
+                                <li><i class="fas fa-check-circle"></i> Public Health Officer Intern at Mtondia Dispensary</li>
+                                <li><i class="fas fa-check-circle"></i> Participant in nationwide measles vaccination campaign</li>
+                                <li><i class="fas fa-check-circle"></i> Participant in nationwide typhoid vaccination campaign</li>
+                                <li><i class="fas fa-check-circle"></i> Conducted school hygiene and sanitation inspections</li>
+                                <li><i class="fas fa-check-circle"></i> Coast Region Coordinator at NABU Organization</li>
+                                <li><i class="fas fa-check-circle"></i> Tree planting and nursery seedling management</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="about-cards">
+                            <div class="info-card">
+                                <h4>Languages</h4>
+                                <div class="language-item">
+                                    <span>English</span>
+                                    <div class="progress-bar"><div class="progress" style="width: 95%"></div></div>
+                                    <span class="level">Fluent</span>
+                                </div>
+                                <div class="language-item">
+                                    <span>Kiswahili</span>
+                                    <div class="progress-bar"><div class="progress" style="width: 95%"></div></div>
+                                    <span class="level">Fluent</span>
+                                </div>
+                                <div class="language-item">
+                                    <span>Arabic</span>
+                                    <div class="progress-bar"><div class="progress" style="width: 30%"></div></div>
+                                    <span class="level">Beginner</span>
+                                </div>
+                            </div>
+                            
+                            <div class="info-card">
+                                <h4>Core Values</h4>
+                                <div class="values-grid">
+                                    <span class="value-tag">Community Health</span>
+                                    <span class="value-tag">Sustainability</span>
+                                    <span class="value-tag">Leadership</span>
+                                    <span class="value-tag">Innovation</span>
+                                    <span class="value-tag">Discipline</span>
+                                    <span class="value-tag">Integrity</span>
+                                </div>
+                            </div>
+                            
+                            <div class="info-card">
+                                <h4>Education</h4>
+                                <p><strong>BSc Environmental Health</strong><br>Kenyatta University (2023–Present)<br>Reg No: Q32/6226/2023</p>
+                                <p><strong>KCSE</strong><br>Chavakali High School (2019–2022)</p>
+                                <p><strong>KCPE</strong><br>Dzikunze Primary School (2014–2018)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- EXPERIENCE SECTION -->
+            <section id="experience" class="section">
+                <div class="container">
+                    <h2 class="section-title">Professional <span class="highlight">Experience</span></h2>
+                    
+                    <div class="timeline">
+                        <!-- Public Health Officer Intern -->
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-date">2025 – Present</div>
+                            <div class="timeline-content">
+                                <h3>Public Health Officer Intern</h3>
+                                <h4>Mtondia Dispensary – Kilifi County</h4>
+                                <ul>
+                                    <li>Conduct environmental sanitation and hygiene inspections</li>
+                                    <li>Monitor food safety compliance in food premises</li>
+                                    <li>Participate in measles vaccination campaigns</li>
+                                    <li>Participate in typhoid vaccination campaigns</li>
+                                    <li>Conduct school hygiene training and inspections</li>
+                                    <li>Support disease surveillance and reporting</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Industrial Attachment -->
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-date">May – Aug 2025</div>
+                            <div class="timeline-content">
+                                <h3>Industrial Attachment</h3>
+                                <h4>Mtondia Dispensary – Kilifi County</h4>
+                                <ul>
+                                    <li>Assisted environmental health inspections</li>
+                                    <li>Supported community health outreach</li>
+                                    <li>Participated in data collection and reporting</li>
+                                    <li>Conducted community diagnosis in Bofa village</li>
+                                    <li>Participated in Mpox contact tracing</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Coast Region Coordinator -->
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-date">2023 – 2024</div>
+                            <div class="timeline-content">
+                                <h3>Coast Region Champion Coordinator</h3>
+                                <h4>NABU Organization</h4>
+                                <ul>
+                                   <li>Taught students how to read and understand online storybooks (NABU platform)</li>
+<li>Coordinated student champions along the coast for literacy activities</li>
+<li>Organized reading sessions and educational workshops</li>
+<li>Mobilized youth and community groups to participate in literacy programs</li>
+<li>Strengthened partnerships with schools and local educational stakeholders</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Vaccination Campaigns -->
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-date">2025</div>
+                            <div class="timeline-content">
+                                <h3>Vaccination Campaign Participant</h3>
+                                <h4>Nationwide Campaigns</h4>
+                                <ul>
+                                    <li>Measles vaccination campaign</li>
+                                    <li>Typhoid vaccination campaign</li>
+                                    <li>HPV vaccination support</li>
+                                    <li>School-based immunization outreach</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PROJECTS SECTION -->
+            <section id="projects" class="section">
+                <div class="container">
+                    <h2 class="section-title">Featured <span class="highlight">Projects</span></h2>
+                    
+                    <div class="projects-grid">
+                        <!-- Samkran Digital Platform -->
+                        <div class="project-card">
+                            <div class="project-icon">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <h3>Samkran Digital Platform</h3>
+                            <p>Progressive Web App with offline capabilities, structured content management, and Islamic green & gold UI design.</p>
+                            <ul class="project-features">
+                                <li>PWA implementation with service workers</li>
+                                <li>Offline caching strategy</li>
+                                <li>JSON-based structured data system</li>
+                                <li>Educational content management</li>
+                                <li>GitHub version control</li>
+                            </ul>
+                            <a href="https://github.com/samsonshukran" target="_blank" rel="noopener noreferrer" class="project-link">
+                                <i class="fab fa-github"></i> View on GitHub
+                            </a>
+                        </div>
+                        
+                        <!-- Public Health Campaigns -->
+                        <div class="project-card">
+                            <div class="project-icon">
+                                <i class="fas fa-syringe"></i>
+                            </div>
+                            <h3>Public Health Campaigns</h3>
+                            <p>Active participation in nationwide vaccination and health promotion initiatives.</p>
+                            <ul class="project-features">
+                                <li>Measles vaccination campaign</li>
+                                <li>Typhoid vaccination campaign</li>
+                                <li>HPV vaccination support</li>
+                                <li>School sanitation education</li>
+                                <li>Community disease awareness</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Food Safety Inspections -->
+                        <div class="project-card">
+                            <div class="project-icon">
+                                <i class="fas fa-utensils"></i>
+                            </div>
+                            <h3>Food Safety & Inspection</h3>
+                            <p>Comprehensive food premise inspections and hygiene compliance monitoring.</p>
+                            <ul class="project-features">
+                                <li>Supermarket inspections (Naivas)</li>
+                                <li>Hotel and restaurant inspections</li>
+                                <li>Food handler certification</li>
+                                <li>Meat inspection at slaughterhouse</li>
+                                <li>Food sampling and analysis</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Environmental Conservation -->
+                        <div class="project-card">
+                            <div class="project-icon">
+                                <i class="fas fa-tree"></i>
+                            </div>
+                            <h3>Environmental Conservation</h3>
+                            <p>Tree planting initiatives and environmental awareness programs.</p>
+                            <ul class="project-features">
+                                <li>Tree planting campaigns</li>
+                                <li>Nursery bed seedling management</li>
+                                <li>Community environmental training</li>
+                                <li>Waste management advocacy</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- IMPACT SECTION -->
+            <section id="impact" class="section">
+                <div class="container">
+                    <h2 class="section-title">Community <span class="highlight">Impact</span></h2>
+                    
+                    <div class="impact-stats">
+                        <div class="stat-card">
+                            <div class="stat-number">10+</div>
+                            <div class="stat-label">Schools Inspected</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">500+</div>
+                            <div class="stat-label">Students Trained</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">3</div>
+                            <div class="stat-label">Vaccination Campaigns</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">200+</div>
+                            <div class="stat-label">Trees Planted</div>
+                        </div>
+                    </div>
+                    
+                    <div class="impact-grid">
+                        <!-- Public Health Impact -->
+                        <div class="impact-card">
+                            <div class="impact-icon">
+                                <i class="fas fa-heartbeat"></i>
+                            </div>
+                            <h3>Public Health Impact</h3>
+                            <ul>
+                                <li>Improved hygiene awareness in schools</li>
+                                <li>Supported immunization coverage expansion</li>
+                                <li>Promoted disease prevention practices</li>
+                                <li>Conducted community health needs assessment</li>
+                                <li>Participated in Mpox contact tracing</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Environmental Impact -->
+                        <div class="impact-card">
+                            <div class="impact-icon">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                            <h3>Environmental Impact</h3>
+                            <ul>
+                                <li>Tree planting initiatives</li>
+                                <li>Seedling propagation programs</li>
+                                <li>Environmental education campaigns</li>
+                                <li>Waste management promotion</li>
+                                <li>Biodiversity awareness</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Food Safety Impact -->
+                        <div class="impact-card">
+                            <div class="impact-icon">
+                                <i class="fas fa-clipboard-check"></i>
+                            </div>
+                            <h3>Food Safety Impact</h3>
+                            <ul>
+                                <li>Inspected 20+ food premises</li>
+                                <li>Food handler certification oversight</li>
+                                <li>Meat inspection at slaughterhouse</li>
+                                <li>Food sampling for laboratory analysis</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Certifications -->
+                    <div class="certifications-section">
+                        <h3>Certifications & Training</h3>
+                        <div class="cert-badges">
+                            <span class="cert-badge">NABU Champion Leadership (2023)</span>
+                            <span class="cert-badge">Computer Literacy – IAT (2023)</span>
+                            <span class="cert-badge">Virtual Assistance Certificate</span>
+                            <span class="cert-badge">EFAC B2S Leadership Program</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CONTACT SECTION -->
+            <section id="contact" class="section">
+                <div class="container">
+                    <h2 class="section-title">Get In <span class="highlight">Touch</span></h2>
+                    
+                    <div class="contact-container">
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-phone-alt"></i>
+                                <div>
+                                    <h4>Phone</h4>
+                                    <p>+254713819739</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <h4>Email</h4>
+                                    <p>samsonkalume833@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fab fa-github"></i>
+                                <div>
+                                    <h4>GitHub</h4>
+                                    <p><a href="https://github.com/samsonshukran" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); text-decoration: none;">github.com/samsonshukran</a></p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <h4>Location</h4>
+                                    <p>Kilifi County, Kenya
+                                        <br>
+
+                                    Nairobi, Kenya (Current Residence)
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-form">
+                            <form id="contactForm">
+                                <div class="form-group">
+                                    <input type="text" placeholder="Your Name" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" placeholder="Your Email" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" placeholder="Subject">
+                                </div>
+                                <div class="form-group">
+                                    <textarea placeholder="Your Message" rows="5" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-block">
+                                    <i class="fas fa-paper-plane"></i> Send Message
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <p>&copy; 2025 Samkran (Yusuf Samson Kalume). All rights reserved.</p>
+                <p class="footer-tagline">Environmental Health · Public Service · Digital Innovation</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JavaScript (Embedded for reliability) -->
+    <script>
+        // Main application JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Samkran Portfolio - Modern Tech Theme v2.0');
+            initNavigation();
+            initMobileMenu();
+            initDownloadCV();
+            initContactForm();
+            setActiveSectionFromHash();
+            
+            // Force theme color update
+            document.querySelector('meta[name="theme-color"]').setAttribute('content', '#00e5ff');
+        });
+
+        // Navigation handling
+        function initNavigation() {
+            const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
+            const sections = document.querySelectorAll('.section');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href').substring(1);
+                    
+                    // Update URL hash without jumping
+                    history.pushState(null, null, `#${targetId}`);
+                    
+                    // Show target section
+                    showSection(targetId);
+                    
+                    // Update active class on nav links
+                    updateActiveNavLinks(targetId);
+                    
+                    // Close mobile menu if open
+                    closeMobileMenu();
+                    
+                    // Scroll to section with offset
+                    scrollToSection(targetId);
+                });
+            });
+            
+            // Handle browser back/forward buttons
+            window.addEventListener('popstate', function() {
+                setActiveSectionFromHash();
+            });
+        }
+        
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+                if (section.id === sectionId) {
+                    section.classList.add('active');
+                }
+            });
+        }
+        
+        function updateActiveNavLinks(sectionId) {
+            const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${sectionId}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+        
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                const headerHeight = document.querySelector('.header').offsetHeight;
+                const sectionTop = section.offsetTop - headerHeight;
+                window.scrollTo({
+                    top: sectionTop,
+                    behavior: 'smooth'
+                });
+            }
+        }
+        
+        function setActiveSectionFromHash() {
+            let hash = window.location.hash.substring(1) || 'home';
+            showSection(hash);
+            updateActiveNavLinks(hash);
+        }
+
+        // Mobile menu handling
+        function initMobileMenu() {
+            const menuToggle = document.getElementById('menuToggle');
+            const mobileNav = document.getElementById('mobileNav');
+            
+            if (menuToggle) {
+                menuToggle.addEventListener('click', function() {
+                    mobileNav.classList.toggle('active');
+                    document.body.classList.toggle('menu-open');
+                    
+                    // Toggle icon
+                    const icon = this.querySelector('i');
+                    if (mobileNav.classList.contains('active')) {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-times');
+                    } else {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+            }
+            
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!mobileNav.contains(e.target) && 
+                    !menuToggle.contains(e.target) && 
+                    mobileNav.classList.contains('active')) {
+                    closeMobileMenu();
+                }
+            });
+        }
+        
+        function closeMobileMenu() {
+            const mobileNav = document.getElementById('mobileNav');
+            const menuToggle = document.getElementById('menuToggle');
+            
+            if (mobileNav && mobileNav.classList.contains('active')) {
+                mobileNav.classList.remove('active');
+                document.body.classList.remove('menu-open');
+                
+                const icon = menuToggle.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        }
+
+        // Download CV functionality
+        function initDownloadCV() {
+            const downloadBtn = document.getElementById('downloadCvBtn');
+            
+            if (downloadBtn) {
+                downloadBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Generate CV content
+                    const cvContent = `SAMKRAN (YUSUF SAMSON KALUME)
+Environmental Health Professional | Public Health Practitioner | Digital Innovator
+Kilifi County, Kenya
+
+PROFESSIONAL PROFILE
+Environmental Health student at Kenyatta University with hands-on experience in sanitation inspection, 
+vaccination campaigns, disease prevention, and environmental conservation. Currently serving as a 
+Public Health Officer Intern at Mtondia Dispensary in Kilifi County.
+
+PROFESSIONAL EXPERIENCE
+Public Health Officer Intern | Mtondia Dispensary | 2025–Present
+- Conduct environmental sanitation and hygiene inspections
+- Monitor food safety compliance in food premises
+- Participate in measles and typhoid vaccination campaigns
+- Conduct school hygiene training and inspections
+- Support disease surveillance and reporting
+
+Coast Region Coordinator | NABU Organization | 2023–2024
+- Coordinated tree planting activities
+- Managed nursery bed seedling projects
+- Led environmental awareness campaigns
+- Mobilized youth and community groups
+
+EDUCATION
+BSc Environmental Health | Kenyatta University | 2023–Present
+KCSE | Chavakali High School | 2019–2022
+KCPE | Dzikunze Primary School | 2014–2018
+
+CERTIFICATIONS
+- NABU Champion Leadership Certificate (2023)
+- Computer Literacy – Institute of Advanced Technology (2023)
+- Certificate in Virtual Assistance – Adept Technologies Ltd
+- EFAC Bridge to Success (B2S) Leadership Program
+
+LANGUAGES
+English: Fluent | Kiswahili: Fluent | Arabic: Beginner`;
+                    
+                    // Create and download file
+                    const blob = new Blob([cvContent], { type: 'text/plain' });
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'Samkran_Yusuf_Kalume_CV.txt';
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    window.URL.revokeObjectURL(url);
+                });
+            }
+        }
+
+        // Contact form handling
+        function initContactForm() {
+            const contactForm = document.getElementById('contactForm');
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const submitBtn = this.querySelector('button[type="submit"]');
+                    const originalText = submitBtn.innerHTML;
+                    
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                    submitBtn.disabled = true;
+                    
+                    // Simulate API call
+                    setTimeout(() => {
+                        alert('Thank you for your message! I will get back to you soon.');
+                        this.reset();
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                    }, 1500);
+                });
+            }
+        }
+
+        // Handle initial page load with hash
+        window.addEventListener('load', function() {
+            setActiveSectionFromHash();
+            
+            // Clear any old service worker caches
+            if ('caches' in window) {
+                caches.keys().then(function(cacheNames) {
+                    cacheNames.forEach(function(cacheName) {
+                        if (cacheName.includes('samkran') && !cacheName.includes('v2')) {
+                            caches.delete(cacheName);
+                        }
+                    });
+                });
+            }
+        });
+    </script>
+    
+    <!-- Register Service Worker with version -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                // Unregister old service workers first
+                navigator.serviceWorker.getRegistrations().then(function(registrations) {
+                    for(let registration of registrations) {
+                        registration.unregister();
+                    }
+                }).then(function() {
+                    // Register new service worker
+                    navigator.serviceWorker.register('/service-worker.js?v=2')
+                        .then(registration => {
+                            console.log('ServiceWorker registered: ', registration);
+                            
+                            // Check for updates
+                            registration.addEventListener('updatefound', () => {
+                                const newWorker = registration.installing;
+                                newWorker.addEventListener('statechange', () => {
+                                    if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                        console.log('New version available!');
+                                    }
+                                });
+                            });
+                        })
+                        .catch(error => {
+                            console.log('ServiceWorker registration failed: ', error);
+                        });
+                });
+            });
+        }
+    </script>
+</body>
+</html>

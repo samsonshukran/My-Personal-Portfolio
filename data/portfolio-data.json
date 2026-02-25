@@ -1,0 +1,190 @@
+{
+  "profile": {
+    "faithName": "Yusuf",
+    "brandName": "SAMKRAN",
+    "legalName": "Samson Kalume",
+    "title": "Environmental Health Professional | Public Health Practitioner | Digital Innovator",
+    "location": "Kilifi County, Kenya",
+    "email": "example@gmail.com",
+    "phone": "+2547********",
+    "github": "https://github.com/samsonshukran",
+    "summary": "Environmental Health student at Kenyatta University with hands-on experience in sanitation inspection, vaccination campaigns, disease prevention, and environmental conservation. Currently serving as a Public Health Officer Intern at Mtondia Dispensary in Kilifi County. Passionate about community health, sustainability, and digital innovation."
+  },
+  "languages": [
+    {
+      "name": "English",
+      "level": "Fluent",
+      "percentage": 95
+    },
+    {
+      "name": "Kiswahili",
+      "level": "Fluent",
+      "percentage": 95
+    },
+    {
+      "name": "Arabic",
+      "level": "Beginner",
+      "percentage": 30
+    }
+  ],
+  "values": [
+    "Community Health",
+    "Sustainability",
+    "Leadership",
+    "Innovation",
+    "Discipline",
+    "Integrity"
+  ],
+  "education": [
+    {
+      "degree": "BSc Environmental Health",
+      "institution": "Kenyatta University",
+      "period": "2023–Present",
+      "details": "Reg No: Q32/6226/2023"
+    },
+    {
+      "degree": "KCSE",
+      "institution": "Chavakali High School",
+      "period": "2019–2022"
+    },
+    {
+      "degree": "KCPE",
+      "institution": "Dzikunze Primary School",
+      "period": "2014–2018"
+    }
+  ],
+  "experience": [
+    {
+      "title": "Public Health Officer Intern",
+      "organization": "Mtondia Dispensary – Kilifi County",
+      "period": "2025 – Present",
+      "responsibilities": [
+        "Conduct environmental sanitation and hygiene inspections",
+        "Monitor food safety compliance in food premises",
+        "Participate in measles vaccination campaigns",
+        "Participate in typhoid vaccination campaigns",
+        "Conduct school hygiene training and inspections",
+        "Support disease surveillance and reporting"
+      ]
+    },
+    {
+      "title": "Industrial Attachment",
+      "organization": "Mtondia Dispensary – Kilifi County",
+      "period": "May – Aug 2025",
+      "responsibilities": [
+        "Assisted environmental health inspections",
+        "Supported community health outreach",
+        "Participated in data collection and reporting",
+        "Conducted community diagnosis in Bofa village",
+        "Participated in Mpox contact tracing"
+      ]
+    },
+    {
+      "title": "Coast Region Coordinator",
+      "organization": "NABU Organization",
+      "period": "2023 – 2024",
+      "responsibilities": [
+        "Coordinated tree planting activities",
+        "Managed nursery bed seedling projects",
+        "Led environmental awareness campaigns",
+        "Mobilized youth and community groups",
+        "Strengthened stakeholder partnerships"
+      ]
+    },
+    {
+      "title": "Vaccination Campaign Participant",
+      "organization": "Nationwide Campaigns",
+      "period": "2025",
+      "responsibilities": [
+        "Measles vaccination campaign",
+        "Typhoid vaccination campaign",
+        "HPV vaccination support",
+        "School-based immunization outreach"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "Samkran Digital Platform",
+      "description": "Progressive Web App with offline capabilities, structured content management, and Islamic green & gold UI design.",
+      "features": [
+        "PWA implementation with service workers",
+        "Offline caching strategy",
+        "JSON-based structured data system",
+        "Educational content management",
+        "GitHub version control"
+      ],
+      "link": "https://github.com/samsonshukran",
+      "icon": "mobile-alt"
+    },
+    {
+      "name": "Public Health Campaigns",
+      "description": "Active participation in nationwide vaccination and health promotion initiatives.",
+      "features": [
+        "Measles vaccination campaign",
+        "Typhoid vaccination campaign",
+        "HPV vaccination support",
+        "School sanitation education",
+        "Community disease awareness"
+      ],
+      "icon": "syringe"
+    },
+    {
+      "name": "Food Safety & Inspection",
+      "description": "Comprehensive food premise inspections and hygiene compliance monitoring.",
+      "features": [
+        "Supermarket inspections (Naivas)",
+        "Hotel and restaurant inspections",
+        "Food handler certification",
+        "Meat inspection at slaughterhouse",
+        "Food sampling and analysis"
+      ],
+      "icon": "utensils"
+    },
+    {
+      "name": "Environmental Conservation",
+      "description": "Tree planting initiatives and environmental awareness programs.",
+      "features": [
+        "Tree planting campaigns",
+        "Nursery bed seedling management",
+        "Community environmental training",
+        "Waste management advocacy"
+      ],
+      "icon": "tree"
+    }
+  ],
+  "stats": {
+    "schoolsInspected": "10+",
+    "studentsTrained": "500+",
+    "vaccinationCampaigns": "3",
+    "treesPlanted": "200+"
+  },
+  "certifications": [
+    "NABU Champion Leadership (2023)",
+    "Computer Literacy – IAT (2023)",
+    "Virtual Assistance Certificate",
+    "EFAC B2S Leadership Program"
+  ],
+  "impact": {
+    "publicHealth": [
+      "Improved hygiene awareness in schools",
+      "Supported immunization coverage expansion",
+      "Promoted disease prevention practices",
+      "Conducted community health needs assessment",
+      "Participated in Mpox contact tracing"
+    ],
+    "environmental": [
+      "Tree planting initiatives",
+      "Seedling propagation programs",
+      "Environmental education campaigns",
+      "Waste management promotion",
+      "Biodiversity awareness"
+    ],
+    "foodSafety": [
+      "Inspected 20+ food premises",
+      "Food handler certification oversight",
+      "Meat inspection at slaughterhouse",
+      "Food sampling for laboratory analysis"
+    ]
+  }
+}
