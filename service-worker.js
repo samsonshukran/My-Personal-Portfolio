@@ -1,23 +1,46 @@
 // ============================================
-// SERVICE WORKER - Samkran Portfolio PWA v2.0.1
-// Modern Tech Theme with Minimal Islamic Accents
+// SERVICE WORKER - Samkran Portfolio PWA v2.0.2
+// Fixed for GitHub Pages deployment
 // ============================================
 
-const CACHE_NAME = 'samkran-portfolio-v2.0.1';
+const CACHE_NAME = 'samkran-portfolio-v2.0.2';
+const BASE_PATH = '/My-Personal-Portfolio';
+
 const urlsToCache = [
-  // Core files - relative paths for production
-  './',
-  './index.html',
-  './css/style.css',
-  './manifest.json',
+  // Core files - adjusted for GitHub Pages
+  `${BASE_PATH}/`,
+  `${BASE_PATH}/index.html`,
+  `${BASE_PATH}/css/style.css`,
+  `${BASE_PATH}/manifest.json`,
+  `${BASE_PATH}/assets/icons/icon-72x72.png`,
+  `${BASE_PATH}/assets/icons/icon-96x96.png`,
+  `${BASE_PATH}/assets/icons/icon-128x128.png`,
+  `${BASE_PATH}/assets/icons/icon-144x144.png`,
+  `${BASE_PATH}/assets/icons/icon-152x152.png`,
+  `${BASE_PATH}/assets/icons/icon-192x192.png`,
+  `${BASE_PATH}/assets/icons/icon-384x384.png`,
+  `${BASE_PATH}/assets/icons/icon-512x512.png`,
   
-  // External resources
+  // External resources (these are safe to cache)
   'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap',
-  'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css',
-  'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/webfonts/fa-solid-900.woff2',
-  'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/webfonts/fa-brands-400.woff2',
-  'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/webfonts/fa-regular-400.woff2'
+  'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css'
 ];
+
+// Font Awesome CDN patterns for cache-first strategy
+const FONT_AWESOME_DOMAINS = [
+  'cdnjs.cloudflare.com',
+  'use.fontawesome.com'
+];
+
+// ============================================
+// HELPER: Get proper request URL with base path
+// ============================================
+function getFullUrl(url) {
+  if (url.startsWith('http')) return url;
+  // Handle relative URLs
+  if (url.startsWith('/')) return url;
+  return `${BASE_PATH}/${url}`;
+}
 
 // ============================================
 // INSTALL EVENT
@@ -32,13 +55,23 @@ self.addEventListener('install', event => {
     caches.open(CACHE_NAME)
       .then(cache => {
         console.log('[Service Worker] Caching app shell and assets');
-        return cache.addAll(urlsToCache).catch(error => {
-          console.error('[Service Worker] Cache addAll error:', error);
-          // Continue even if some assets fail to cache
+        
+        // Cache each URL individually to prevent one failure from breaking all
+        const cachePromises = urlsToCache.map(url => {
+          return cache.add(url).catch(error => {
+            console.warn(`[Service Worker] Failed to cache: ${url}`, error.message);
+            // Continue even if individual asset fails
+            return Promise.resolve();
+          });
         });
+        
+        return Promise.all(cachePromises);
       })
       .then(() => {
         console.log('[Service Worker] Install completed successfully');
+      })
+      .catch(error => {
+        console.error('[Service Worker] Install failed:', error);
       })
   );
 });
@@ -69,11 +102,20 @@ self.addEventListener('activate', event => {
 });
 
 // ============================================
-// FETCH EVENT - Smart caching strategy
+// FETCH EVENT - Smart caching strategy for GitHub Pages
 // ============================================
 self.addEventListener('fetch', event => {
   const requestUrl = new URL(event.request.url);
   const requestPath = requestUrl.pathname;
+  
+  // Skip cross-origin requests that aren't allowed (like analytics)
+  if (!event.request.url.startsWith(self.location.origin) && 
+      !requestUrl.hostname.includes('googleapis') && 
+      !requestUrl.hostname.includes('gstatic') && 
+      !requestUrl.hostname.includes('cloudflare') && 
+      !FONT_AWESOME_DOMAINS.some(domain => requestUrl.hostname.includes(domain))) {
+    return; // Let browser handle normally
+  }
   
   // ===== STRATEGY 1: Network First for HTML/CSS/JS (Always get latest) =====
   if (requestPath.endsWith('.html') || 
@@ -85,10 +127,14 @@ self.addEventListener('fetch', event => {
       fetch(event.request)
         .then(response => {
           // Cache the new version for offline use
-          const responseClone = response.clone();
-          caches.open(CACHE_NAME).then(cache => {
-            cache.put(event.request, responseClone);
-          });
+          if (response.ok) {
+            const responseClone = response.clone();
+            caches.open(CACHE_NAME).then(cache => {
+              cache.put(event.request, responseClone).catch(err => {
+                console.log('[Service Worker] Cache put failed:', err);
+              });
+            });
+          }
           return response;
         })
         .catch(() => {
@@ -98,106 +144,114 @@ self.addEventListener('fetch', event => {
               console.log('[Service Worker] Serving from cache (offline):', requestPath);
               return cachedResponse;
             }
-            // If not in cache and offline, return offline page
+            // If not in cache and offline, return index.html for SPA-like behavior
             if (requestPath.endsWith('.html')) {
-              return caches.match('./index.html');
+              return caches.match(`${BASE_PATH}/index.html`);
             }
-            return new Response('Offline - Resource not available', { status: 503 });
+            return new Response('Offline - Resource not available', { 
+              status: 503,
+              headers: { 'Content-Type': 'text/plain' }
+            });
           });
         })
     );
     return;
   }
   
-  // ===== STRATEGY 2: Cache First for Images and Fonts (Faster loading) =====
-  if (requestPath.startsWith('/assets/') || 
-      requestPath.match(/\.(png|jpg|jpeg|gif|svg|ico|woff2|woff|ttf)$/)) {
+  // ===== STRATEGY 2: Cache First for Images and Icons =====
+  if (requestPath.includes('/assets/') || 
+      requestPath.match(/\.(png|jpg|jpeg|gif|svg|ico|webp)$/)) {
     
     event.respondWith(
       caches.match(event.request).then(cachedResponse => {
         if (cachedResponse) {
+          // Return cached version immediately
           return cachedResponse;
         }
         
         return fetch(event.request).then(networkResponse => {
-          // Cache the new image/font
-          const responseClone = networkResponse.clone();
-          caches.open(CACHE_NAME).then(cache => {
-            cache.put(event.request, responseClone);
-          });
-          return networkResponse;
-        }).catch(() => {
-          // Return a placeholder if image fails
-          if (requestPath.match(/\.(png|jpg|jpeg|gif|svg)$/)) {
-            return new Response('<svg>Placeholder</svg>', { 
-              headers: { 'Content-Type': 'image/svg+xml' } 
-            });
-          }
-        });
-      })
-    );
-    return;
-  }
-  
-  // ===== STRATEGY 3: Stale-While-Revalidate for Google Fonts =====
-  if (requestUrl.hostname.includes('googleapis') || 
-      requestUrl.hostname.includes('gstatic') || 
-      requestUrl.hostname.includes('cloudflare')) {
-    
-    event.respondWith(
-      caches.match(event.request).then(cachedResponse => {
-        const fetchPromise = fetch(event.request)
-          .then(networkResponse => {
-            // Update cache with new response
+          if (networkResponse.ok) {
+            // Cache the new image
             const responseClone = networkResponse.clone();
             caches.open(CACHE_NAME).then(cache => {
-              cache.put(event.request, responseClone);
+              cache.put(event.request, responseClone).catch(err => {
+                console.log('[Service Worker] Image cache put failed:', err);
+              });
             });
-            return networkResponse;
-          })
-          .catch(error => {
-            console.log('[Service Worker] Font fetch failed:', error);
-          });
-        
-        return cachedResponse || fetchPromise;
+          }
+          return networkResponse;
+        }).catch(() => {
+          // Return a minimal placeholder if image fails
+          return new Response(
+            '<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="%231a2340"/><text x="50" y="55" font-family="Arial" font-size="12" fill="%2300e5ff" text-anchor="middle">Image</text></svg>',
+            { headers: { 'Content-Type': 'image/svg+xml' } }
+          );
+        });
       })
     );
     return;
   }
   
-  // ===== STRATEGY 4: Default - Cache First, Network Fallback =====
+  // ===== STRATEGY 3: Stale-While-Revalidate for Fonts and External Resources =====
+  if (requestUrl.hostname.includes('googleapis') || 
+      requestUrl.hostname.includes('gstatic') || 
+      requestUrl.hostname.includes('cloudflare') ||
+      FONT_AWESOME_DOMAINS.some(domain => requestUrl.hostname.includes(domain))) {
+    
+    event.respondWith(
+      caches.open(CACHE_NAME).then(cache => {
+        return cache.match(event.request).then(cachedResponse => {
+          const fetchPromise = fetch(event.request)
+            .then(networkResponse => {
+              // Update cache with new response if valid
+              if (networkResponse.ok) {
+                cache.put(event.request, networkResponse.clone()).catch(err => {
+                  console.log('[Service Worker] Font cache update failed:', err);
+                });
+              }
+              return networkResponse;
+            })
+            .catch(error => {
+              console.log('[Service Worker] Font fetch failed:', error);
+              // Return cached response if fetch fails
+              return cachedResponse;
+            });
+          
+          // Return cached response immediately if available, otherwise wait for fetch
+          return cachedResponse || fetchPromise;
+        });
+      })
+    );
+    return;
+  }
+  
+  // ===== STRATEGY 4: Default - Network First with Cache Fallback =====
   event.respondWith(
-    caches.match(event.request).then(cachedResponse => {
-      if (cachedResponse) {
-        return cachedResponse;
-      }
-      
-      return fetch(event.request).then(networkResponse => {
-        // Don't cache non-successful responses
-        if (!networkResponse || networkResponse.status !== 200 || networkResponse.type !== 'basic') {
-          return networkResponse;
+    fetch(event.request)
+      .then(response => {
+        // Cache successful responses for future offline use
+        if (response.ok && response.status === 200) {
+          const responseClone = response.clone();
+          caches.open(CACHE_NAME).then(cache => {
+            cache.put(event.request, responseClone).catch(err => {
+              // Silently fail - caching is optional
+            });
+          });
         }
-        
-        // Cache valid responses
-        const responseClone = networkResponse.clone();
-        caches.open(CACHE_NAME).then(cache => {
-          cache.put(event.request, responseClone);
+        return response;
+      })
+      .catch(() => {
+        return caches.match(event.request).then(cachedResponse => {
+          if (cachedResponse) {
+            return cachedResponse;
+          }
+          // If all else fails, return a simple offline message
+          return new Response('You are offline and this resource is not cached.', {
+            status: 503,
+            headers: { 'Content-Type': 'text/plain' }
+          });
         });
-        
-        return networkResponse;
-      }).catch(error => {
-        console.log('[Service Worker] Fetch failed:', error.message);
-        
-        // Return a basic offline response
-        return new Response('Offline content not available', {
-          status: 503,
-          statusText: 'Service Unavailable',
-          headers: new Headers({
-            'Content-Type': 'text/plain'
-          })
-        });
-      });
-    })
+      })
   );
 });
 
@@ -221,7 +275,8 @@ async function sendContactForms() {
     
     for (const form of unsentForms) {
       try {
-        const response = await fetch('https://your-api-endpoint.com/contact', {
+        // Note: Replace with your actual form endpoint
+        const response = await fetch('https://formspree.io/f/your-form-id', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(form.data)
@@ -280,67 +335,6 @@ function deleteForm(db, id) {
 }
 
 // ============================================
-// PUSH EVENT - Handle push notifications (for future use)
-// ============================================
-self.addEventListener('push', event => {
-  console.log('[Service Worker] Push received:', event);
-  
-  let data = { title: 'Samkran Portfolio', body: 'New update available', icon: './assets/icons/icon-192x192.png' };
-  
-  if (event.data) {
-    try {
-      data = JSON.parse(event.data.text());
-    } catch (e) {
-      data.body = event.data.text();
-    }
-  }
-  
-  const options = {
-    body: data.body,
-    icon: data.icon || './assets/icons/icon-192x192.png',
-    badge: './assets/icons/icon-72x72.png',
-    vibrate: [200, 100, 200],
-    data: { url: data.url || '/' },
-    actions: [
-      { action: 'open', title: 'Open App' },
-      { action: 'close', title: 'Close' }
-    ]
-  };
-  
-  event.waitUntil(
-    self.registration.showNotification(data.title, options)
-  );
-});
-
-// ============================================
-// NOTIFICATION CLICK EVENT
-// ============================================
-self.addEventListener('notificationclick', event => {
-  console.log('[Service Worker] Notification clicked:', event);
-  
-  event.notification.close();
-  
-  if (event.action === 'close') {
-    return;
-  }
-  
-  const urlToOpen = event.notification.data?.url || '/';
-  
-  event.waitUntil(
-    clients.matchAll({ type: 'window', includeUncontrolled: true }).then(windowClients => {
-      // Check if there's already a window open
-      for (const client of windowClients) {
-        if (client.url === urlToOpen && 'focus' in client) {
-          return client.focus();
-        }
-      }
-      // If not, open a new window
-      return clients.openWindow(urlToOpen);
-    })
-  );
-});
-
-// ============================================
 // MESSAGE EVENT - Handle messages from client
 // ============================================
 self.addEventListener('message', event => {
@@ -354,7 +348,13 @@ self.addEventListener('message', event => {
     const urls = event.data.urls;
     event.waitUntil(
       caches.open(CACHE_NAME).then(cache => {
-        return cache.addAll(urls);
+        return Promise.all(
+          urls.map(url => 
+            cache.add(url).catch(err => {
+              console.warn(`[Service Worker] Failed to cache URL: ${url}`, err);
+            })
+          )
+        );
       })
     );
   }
@@ -372,44 +372,15 @@ self.addEventListener('unhandledrejection', event => {
 });
 
 // ============================================
-// HELPER FUNCTION: Check if URL should be cached
+// CLEANUP FUNCTION - Prevent memory leaks
 // ============================================
-function shouldCache(url) {
-  const cacheableExtensions = [
-    '.html', '.css', '.js', '.json',
-    '.png', '.jpg', '.jpeg', '.gif', '.svg', '.ico',
-    '.woff', '.woff2', '.ttf', '.eot',
-    '.txt', '.xml'
-  ];
-  
-  return cacheableExtensions.some(ext => url.endsWith(ext));
+function cleanup() {
+  // Clear any intervals
+  if (self._cacheSizeInterval) {
+    clearInterval(self._cacheSizeInterval);
+  }
 }
 
-// ============================================
-// HELPER FUNCTION: Get cache size
-// ============================================
-async function getCacheSize() {
-  const cache = await caches.open(CACHE_NAME);
-  const keys = await cache.keys();
-  let totalSize = 0;
-  
-  for (const request of keys) {
-    const response = await cache.match(request);
-    const blob = await response.blob();
-    totalSize += blob.size;
-  }
-  
-  console.log(`[Service Worker] Cache size: ${(totalSize / (1024 * 1024)).toFixed(2)} MB`);
-  return totalSize;
-}
+self.addEventListener('beforeunload', cleanup);
 
-// Run cache size check periodically (every hour)
-setInterval(async () => {
-  try {
-    await getCacheSize();
-  } catch (error) {
-    console.log('[Service Worker] Cache size check failed:', error);
-  }
-}, 60 * 60 * 1000); // 1 hour
-
-console.log('[Service Worker] Registered successfully');
+console.log('[Service Worker] Registered successfully for GitHub Pages');

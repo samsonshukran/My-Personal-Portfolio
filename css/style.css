@@ -1129,3 +1129,45 @@ h1, h2, h3, h4, h5, h6 {
 .float {
     animation: float 3s ease-in-out infinite;
 }
+
+
+
+/* ===== HOBBIES SECTION ===== */
+
+.hobbies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.hobby-card {
+    background: var(--primary-deep);
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid var(--border-color);
+    transition: 0.3s ease;
+}
+
+.hobby-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.15);
+}
+
+.hobby-icon {
+    font-size: 2rem;
+    color: var(--accent-cyan);
+    margin-bottom: 1rem;
+}
+
+.hobby-card h3 {
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.hobby-card p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}

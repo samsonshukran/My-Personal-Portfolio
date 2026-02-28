@@ -4,41 +4,247 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page Not Found - Samkran</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <!-- Use relative path for CSS since 404 can be in any subdirectory -->
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- Fallback inline styles in case CSS fails to load -->
     <style>
-        .error-page {
+        /* Root variables matching your theme */
+        :root {
+            --primary-dark: #0a0c14;
+            --primary-deep: #0f1424;
+            --primary-medium: #1a2340;
+            --primary-light: #2a3558;
+            --accent-cyan: #00e5ff;
+            --accent-cyan-dim: #00b8cc;
+            --islamic-emerald: #2ecc71;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b9d9;
+            --text-muted: #6b7a9f;
+            --border-color: #2a3558;
+            --glow-cyan: 0 0 15px rgba(0, 229, 255, 0.3);
+            --shadow-md: 0 8px 30px rgba(0, 229, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--primary-dark);
+            background-image: radial-gradient(circle at 10% 20%, rgba(26, 35, 64, 0.4) 0%, transparent 30%);
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
+            color: var(--text-secondary);
+        }
+
+        .error-page {
             text-align: center;
             padding: 2rem;
+            max-width: 600px;
+            width: 100%;
         }
+
         .error-code {
-            font-size: 8rem;
+            font-size: 12rem;
             font-weight: 800;
-            color: var(--primary-green);
+            background: linear-gradient(135deg, var(--accent-cyan), var(--islamic-emerald));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             line-height: 1;
-        }
-        .error-message {
-            font-size: 2rem;
-            color: var(--text-dark);
             margin-bottom: 1rem;
+            text-shadow: var(--glow-cyan);
+            animation: float 3s ease-in-out infinite;
         }
+
+        .error-message {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
         .error-description {
-            color: var(--text-gray);
-            margin-bottom: 2rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            max-width: 450px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2.5rem;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            letter-spacing: 0.3px;
+        }
+
+        .btn-primary {
+            background: var(--accent-cyan);
+            color: var(--primary-dark);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-cyan-dim);
+            transform: translateY(-3px);
+            box-shadow: var(--glow-cyan);
+        }
+
+        .btn-primary i {
+            font-size: 1rem;
+        }
+
+        /* Add subtle animation */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Add a subtle grid pattern in background */
+        .error-page::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(rgba(0, 229, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 229, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Home link with icon */
+        .home-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent-cyan);
+            text-decoration: none;
+            margin-top: 2rem;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .home-link:hover {
+            gap: 0.8rem;
+            color: var(--text-primary);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .error-code {
+                font-size: 8rem;
+            }
+            .error-message {
+                font-size: 2rem;
+            }
+            .error-description {
+                font-size: 1rem;
+                padding: 0 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .error-code {
+                font-size: 6rem;
+            }
+            .error-message {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Ensure fonts load even if external CSS fails */
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 300 800;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/inter/v13/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7.woff2) format('woff2');
+        }
+
+        @font-face {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 300 700;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJfecg.woff2) format('woff2');
         }
     </style>
+    <!-- Font Awesome for icons (minimal) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <div class="error-page">
         <div>
             <div class="error-code">404</div>
             <h1 class="error-message">Page Not Found</h1>
-            <p class="error-description">The page you're looking for doesn't exist or has been moved.</p>
-            <a href="/" class="btn btn-primary">Go Back Home</a>
+            <p class="error-description">
+                The page you're looking for doesn't exist or has been moved.<br>
+                Let's get you back on track.
+            </p>
+            <a href="./" class="btn btn-primary">
+                <i class="fas fa-home"></i>
+                Go Back Home
+            </a>
+            <div style="margin-top: 2rem;">
+                <a href="./#contact" class="home-link">
+                    <i class="fas fa-envelope"></i>
+                    Contact Support
+                </a>
+            </div>
         </div>
     </div>
+
+    <!-- Add a small script to handle the home link correctly on GitHub Pages -->
+    <script>
+        (function() {
+            // Fix for GitHub Pages - ensure home links go to the base path
+            document.addEventListener('DOMContentLoaded', function() {
+                // Get the current path to determine if we're in a subdirectory
+                const pathSegments = window.location.pathname.split('/');
+                const repoName = 'My-Personal-Portfolio';
+                
+                // Check if we're on GitHub Pages with the repo in the path
+                if (window.location.hostname.includes('github.io') && pathSegments.includes(repoName)) {
+                    // Update home link to include the repo path
+                    const homeLink = document.querySelector('.btn-primary');
+                    const contactLink = document.querySelector('.home-link');
+                    
+                    if (homeLink) {
+                        homeLink.href = `/${repoName}/`;
+                    }
+                    if (contactLink) {
+                        contactLink.href = `/${repoName}/#contact`;
+                    }
+                }
+                
+                // Add a fun console message
+                console.log('🌍 404 - You\'ve discovered a hidden path!');
+            });
+        })();
+    </script>
 </body>
 </html>
