@@ -110,7 +110,7 @@
                                 Environmental Health student at Kenyatta University with practical experience in sanitation inspections, vaccination campaigns, disease prevention, and environmental conservation. Equally passionate about technology and digital innovation, including web development, graphics design, and Progressive Web Apps, using modern digital tools to enhance public health solutions and community impact. Combines evidence-based health practices with creative tech solutions to drive sustainable and measurable outcomes.
                             </p>
                             <div class="hero-buttons">
-                                <a href="assets/documents/SAMSON KALUME.docx" class="btn btn-primary" id="downloadCvBtn">
+                                <a href="assets/documents/SAMSONcv.pdf" class="btn btn-primary" id="downloadCvBtn">
                                     <i class="fas fa-download"></i> Download CV
                                 </a>
                                 <a href="#projects" class="btn btn-secondary">
@@ -645,65 +645,82 @@
                 </div>
             </section>
 
-            <!-- CONTACT SECTION -->
-            <section id="contact" class="section">
-                <div class="container">
-                    <h2 class="section-title">Get In <span class="highlight">Touch</span></h2>
-                    
-                    <div class="contact-container">
-                        <div class="contact-info">
-                            <div class="contact-item">
-                                <i class="fas fa-phone-alt"></i>
-                                <div>
-                                    <h4>Phone</h4>
-                                    <p>+254713819739</p>
-                                </div>
-                            </div>
-                            <div class="contact-item">
-                                <i class="fas fa-envelope"></i>
-                                <div>
-                                    <h4>Email</h4>
-                                    <p>samsonkalume833@gmail.com</p>
-                                </div>
-                            </div>
-                            <div class="contact-item">
-                                <i class="fab fa-github"></i>
-                                <div>
-                                    <h4>GitHub</h4>
-                                    <p><a href="https://github.com/samsonshukran" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); text-decoration: none;">github.com/samsonshukran</a></p>
-                                </div>
-                            </div>
-                            <div class="contact-item">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <div>
-                                    <h4>Location</h4>
-                                    <p>Kilifi County, Kenya<br>Nairobi, Kenya (Current Residence)</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-form">
-                            <form id="contactForm">
-                                <div class="form-group">
-                                    <input type="text" placeholder="Your Name" required>
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" placeholder="Your Email" required>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" placeholder="Subject">
-                                </div>
-                                <div class="form-group">
-                                    <textarea placeholder="Your Message" rows="5" required></textarea>
-                                </div>
-                                <button type="submit" class="btn btn-primary btn-block">
-                                    <i class="fas fa-paper-plane"></i> Send Message
-                                </button>
-                            </form>
-                        </div>
+                 <!-- CONTACT SECTION -->
+<section id="contact" class="section">
+    <div class="container">
+        <h2 class="section-title">Get In <span class="highlight">Touch</span></h2>
+        
+        <div class="contact-container">
+            <!-- Contact Info -->
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <div>
+                        <h4>Phone</h4>
+                        <p>
+                            <a href="https://wa.me/254713819739" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); text-decoration: none;">
+                                +254713819739 (WhatsApp)
+                            </a>
+                        </p>
+                        <!-- Optional Telegram -->
+                        <!-- <p><a href="https://t.me/yourusername" target="_blank">Telegram</a></p> -->
                     </div>
                 </div>
-            </section>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h4>Email</h4>
+                        <p>
+                            <a href="mailto:samsonkalume833@gmail.com" style="color: var(--text-secondary); text-decoration: none;">
+                                samsonkalume833@gmail.com
+                            </a>
+                        </p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-github"></i>
+                    <div>
+                        <h4>GitHub</h4>
+                        <p>
+                            <a href="https://github.com/samsonshukran" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); text-decoration: none;">
+                                github.com/samsonshukran
+                            </a>
+                        </p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h4>Location</h4>
+                        <p>Kilifi County, Kenya<br>Nairobi, Kenya (Current Residence)</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Contact Form -->
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your Email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Subject" name="subject">
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Your Message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+          
         </main>
 
         <!-- Footer -->
@@ -808,35 +825,74 @@
             }
         }
 
-        function initDownloadCV() {
-            const downloadBtn = document.getElementById('downloadCvBtn');
-            if (downloadBtn) {
-                downloadBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    alert('CV download will be available soon. For now, please contact me directly.');
-                });
+      function initDownloadCV() {
+    const downloadBtn = document.getElementById('downloadCvBtn');
+    if (downloadBtn) {
+        downloadBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Ask the user to confirm
+            const proceed = confirm(
+                "For security, please contact me directly. Do you still want to download the CV?"
+            );
+            
+            if (proceed) {
+                // Start the download if they click OK
+                window.location.href = "assets/documents/SAMSONcv.pdf"; // replace with your CV file name
+            } else {
+                alert("Thank you! Please contact me at your convenience.");
             }
-        }
+        });
+    }
+}
 
-        function initContactForm() {
-            const contactForm = document.getElementById('contactForm');
-            if (contactForm) {
-                contactForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    const submitBtn = this.querySelector('button[type="submit"]');
-                    const originalText = submitBtn.innerHTML;
-                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-                    submitBtn.disabled = true;
-                    setTimeout(() => {
-                        alert('Thank you for your message! I will get back to you soon.');
-                        this.reset();
-                        submitBtn.innerHTML = originalText;
-                        submitBtn.disabled = false;
-                    }, 1500);
-                });
-            }
-        }
+   
+document.addEventListener("DOMContentLoaded", function() {
+    // -----------------------------
+    // Contact Form
+    // -----------------------------
+    function initContactForm() {
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
 
+                const submitBtn = this.querySelector('button[type="submit"]');
+                const originalText = submitBtn.innerHTML;
+
+                // Show sending spinner
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                submitBtn.disabled = true;
+
+                // Get form values
+                const name = encodeURIComponent(this.name.value);
+                const email = encodeURIComponent(this.email.value);
+                const subject = encodeURIComponent(this.subject.value);
+                const message = encodeURIComponent(this.message.value);
+
+                // Create mailto link
+                const mailtoLink = `mailto:samsonkalume833@gmail.com?subject=${subject}&body=Name: ${name}%0AEmail: ${email}%0A%0A${message}`;
+
+                // Simulate sending delay
+                setTimeout(() => {
+                    // Open Gmail or default mail client
+                    window.location.href = mailtoLink;
+
+                    // Show alert
+                    alert('Thank you for your message! Your email client will open shortly. I will get back to you soon.');
+
+                    // Reset form and button
+                    this.reset();
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                }, 1500);
+            });
+        }
+    }
+
+    // Initialize contact form
+    initContactForm();
+});
         window.addEventListener('load', function() {
             setActiveSectionFromHash();
             if ('caches' in window) {
