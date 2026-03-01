@@ -1171,3 +1171,48 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--text-secondary);
     font-size: 0.9rem;
 }
+
+
+
+
+
+        /* Emergency fallback styles in case CSS fails to load */
+        :root {
+            --primary-dark: #0a0c14;
+            --primary-deep: #0f1424;
+            --primary-medium: #1a2340;
+            --primary-light: #2a3558;
+            --accent-cyan: #00e5ff;
+            --accent-cyan-dim: #00b8cc;
+            --islamic-emerald: #2ecc71;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b9d9;
+            --text-muted: #6b7a9f;
+            --border-color: #2a3558;
+        }
+        
+        body { 
+            background: var(--primary-dark); 
+            color: var(--text-secondary);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .header { 
+            background: rgba(10,12,20,0.95); 
+            padding: 1rem;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 15px; }
+        .section { display: none; padding: 4rem 0; margin-top: 80px; }
+        .section.active { display: block; }
+        .hero { display: flex; gap: 2rem; align-items: center; }
+        .btn { padding: 0.8rem 1.8rem; border-radius: 6px; text-decoration: none; }
+        .btn-primary { background: var(--accent-cyan); color: var(--primary-dark); }
+        .footer { background: var(--primary-dark); text-align: center; padding: 2rem; }
+    
