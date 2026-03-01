@@ -3,12 +3,12 @@
 // Optimized for GitHub Pages deployment
 // ============================================
 
+// Set base path for GitHub Pages (global)
+window.BASE_PATH = '/My-Personal-Portfolio';
+
 // App initialization
 document.addEventListener('DOMContentLoaded', () => {
     console.log('🚀 Samkran Portfolio initializing...');
-    
-    // Set base path for GitHub Pages
-    window.BASE_PATH = '/My-Personal-Portfolio';
     
     // Initialize all modules
     initNavigation();
@@ -565,43 +565,6 @@ async function loadContentFromJSON() {
     } catch (error) {
         console.log('📋 Using static content fallback');
     }
-}
-
-// ============================================
-// SERVICE WORKER HANDLING
-// ============================================
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        // Unregister old service workers
-        navigator.serviceWorker.getRegistrations().then(registrations => {
-            for (let registration of registrations) {
-                registration.unregister();
-                console.log('ServiceWorker unregistered:', registration);
-            }
-        }).then(() => {
-            // Register new service worker
-            navigator.serviceWorker.register(`${window.BASE_PATH}/service-worker.js`)
-                .then(registration => {
-                    console.log('✅ ServiceWorker registered:', registration);
-                    
-                    // Check for updates
-                    registration.addEventListener('updatefound', () => {
-                        const newWorker = registration.installing;
-                        newWorker.addEventListener('statechange', () => {
-                            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                                // New version available
-                                if (confirm('New version available! Reload to update?')) {
-                                    window.location.reload();
-                                }
-                            }
-                        });
-                    });
-                })
-                .catch(error => {
-                    console.log('❌ ServiceWorker registration failed:', error);
-                });
-        });
-    });
 }
 
 // ============================================
